@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import FundingProjectWeb3UseCase from "../web3/fundingProject/FundingProjectUseCase";
+import CreateProjectUseCase from "../web3/createProject/CreateProjectUseCase";
 import source from "../images/childrenproject.png";
 
 export default function Create() {
@@ -22,9 +22,9 @@ export default function Create() {
     console.log(lastName);
     console.log(checkbox); //
   };
-  const fundProject = () => {
+  const createProject = () => {
     console.log("Amount donated -> " + donationValue);
-    FundingProjectWeb3UseCase().fund();
+    CreateProjectUseCase().create(10);
   };
   return (
     <div>
@@ -73,7 +73,7 @@ export default function Create() {
             onChange={(e) => setCheckbox(!checkbox)}
           />
         </Form.Field>
-        <Button onClick={fundProject} type="submit">
+        <Button onClick={createProject} type="submit">
           Donate here!
         </Button>
       </Form>
